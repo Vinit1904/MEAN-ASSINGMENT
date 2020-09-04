@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-forgot',
@@ -10,7 +10,9 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 })
 export class ForgotComponent implements OnInit {
 
-  constructor(private router: Router, private fb: FormBuilder) { }
+  constructor(private router: Router,
+    private fb: FormBuilder,
+    private http: HttpClient) { }
 
   ngOnInit(): void {
   }
@@ -30,10 +32,25 @@ export class ForgotComponent implements OnInit {
     password: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(7)]],
   });
 
+  ///////////////Ajax///////////////////////////
+  async ForgotHere() {
 
-  ForgotHere() {
     const data = this.forgot.value;
     console.log(data);
+
+    const url = 'http://localhost :5600/forgot';
+
+    const result: any = await this.http.post(url, data).toPromise();
+
+    if (result.opr) {
+      //sesssion manangemt
+
+      this.router.navigate(['game']);
+
+    } else {
+
+      //this.uiInvalidCredential = true;
+    }
 
   }
 

@@ -3,6 +3,7 @@ import {
   FormControl, FormGroup, FormBuilder, Validators
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-signup',
@@ -11,8 +12,11 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private router: Router, private fb: FormBuilder) { }
-  name = new FormControl('');
+  constructor(private router: Router,
+    private fb: FormBuilder,
+    private http: HttpClient) { }
+
+
 
   ngOnInit(): void {
   }
@@ -47,9 +51,28 @@ export class SignupComponent implements OnInit {
     return this.form.get('cpassword');
   }
 
-  RegisterHere() {
-    const data = this.form.value;
-    console.log(data);
+
+  //////Ajax////////////
+  async RegisterHere() {
+
+    const data1 = this.form.value;
+
+    const url = 'http://localhost :5600/signup';
+
+    const result: any = await this.http.post(url, data1).toPromise();
+
+    if (result.opr) {
+
+      this.router.navigate(['login']);
+
+    } else {
+
+      //this.uiInvalidCredential = true;
+
+
+    }
+
+    //console.log(data);
   }
 
 

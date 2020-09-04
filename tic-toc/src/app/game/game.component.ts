@@ -13,8 +13,24 @@ export class GameComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  
+  boxclick() {
+    var isX = true;
+    var isValid = false;
+    var cells = [];
+    var player = 1;
+    var computer = 0;
+    var onMove = 1;
+    var result = "";
+    var intervalId;
 
-  
+    {
+      console.log(player);
+    }
+  }
+
+
+
+
+
 
 }
