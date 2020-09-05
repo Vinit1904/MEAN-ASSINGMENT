@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="1.js"></script>
+</head>
+<style>
+    .block {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .box {
+        height: 50vh;
+        width: 50vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+    }
+
+    .box div {
+        margin: 1rem;
+    }
+</style>
+
+<body>
+    <div class="block">
+        <div class="box">
+            <div>Registration</div>
+
+            <div>
+                <label for="">C_ID:</label>
+                <input id="C_ID" type="text">
+            </div>
+
+            <div>
+                <label for="">NAME:</label>
+                <input id="name" type="text">
+            </div>
+
+            <div>
+                <label for="">CITY:</label>
+                <input id="city" type="text">
+            </div>
+
+            <div>
+                <label for="">Email:</label>
+                <input id="email" type="text">
+            </div>
+
+            <div>
+                <button onclick="registerpost()">post Submit</button>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

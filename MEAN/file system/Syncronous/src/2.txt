@@ -1,0 +1,18 @@
+loredwjnksam,becjwskmzbcdn ma,z
+
+
+const fs = require("fs");
+
+
+let readFilewithoutExpetion = () => {
+
+    try {
+        // const filepath = "./2.txt";
+
+        const fileContent = fs.readFileSync("./2.txt", { encoding: "utf-8" });
+
+        console.log(fileContent);
+    } catch (err) {
+        console.log("there is problem in page", err.messsge);
+    }
+};
